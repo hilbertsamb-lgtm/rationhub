@@ -9,38 +9,491 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UserRouteImport } from './routes/user'
+import { Route as ShopRouteImport } from './routes/shop'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as UserIndexRouteImport } from './routes/user.index'
+import { Route as ShopIndexRouteImport } from './routes/shop.index'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as UserTokensRouteImport } from './routes/user.tokens'
+import { Route as UserPurchasesRouteImport } from './routes/user.purchases'
+import { Route as UserProfileRouteImport } from './routes/user.profile'
+import { Route as UserProductsRouteImport } from './routes/user.products'
+import { Route as UserNotificationsRouteImport } from './routes/user.notifications'
+import { Route as UserComplaintsRouteImport } from './routes/user.complaints'
+import { Route as UserCardRouteImport } from './routes/user.card'
+import { Route as UserBookTokenRouteImport } from './routes/user.book-token'
+import { Route as ShopVerifyRouteImport } from './routes/shop.verify'
+import { Route as ShopTokensRouteImport } from './routes/shop.tokens'
+import { Route as ShopStockRouteImport } from './routes/shop.stock'
+import { Route as ShopReportRouteImport } from './routes/shop.report'
+import { Route as ShopReceiptsRouteImport } from './routes/shop.receipts'
+import { Route as ShopIssueRouteImport } from './routes/shop.issue'
+import { Route as LoginUserRouteImport } from './routes/login.user'
+import { Route as LoginShopkeeperRouteImport } from './routes/login.shopkeeper'
+import { Route as LoginAdminRouteImport } from './routes/login.admin'
+import { Route as AdminUsersRouteImport } from './routes/admin.users'
+import { Route as AdminStocksRouteImport } from './routes/admin.stocks'
+import { Route as AdminShopsRouteImport } from './routes/admin.shops'
+import { Route as AdminShopkeepersRouteImport } from './routes/admin.shopkeepers'
+import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
+import { Route as AdminReportsRouteImport } from './routes/admin.reports'
+import { Route as AdminProductsRouteImport } from './routes/admin.products'
+import { Route as AdminComplaintsRouteImport } from './routes/admin.complaints'
+import { Route as AdminCardRequestsRouteImport } from './routes/admin.card-requests'
+import { Route as AdminAnnouncementsRouteImport } from './routes/admin.announcements'
+import { Route as AdminAddressRequestsRouteImport } from './routes/admin.address-requests'
 
+const UserRoute = UserRouteImport.update({
+  id: '/user',
+  path: '/user',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopRoute = ShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UserIndexRoute = UserIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => UserRoute,
+} as any)
+const ShopIndexRoute = ShopIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ShopRoute,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const UserTokensRoute = UserTokensRouteImport.update({
+  id: '/tokens',
+  path: '/tokens',
+  getParentRoute: () => UserRoute,
+} as any)
+const UserPurchasesRoute = UserPurchasesRouteImport.update({
+  id: '/purchases',
+  path: '/purchases',
+  getParentRoute: () => UserRoute,
+} as any)
+const UserProfileRoute = UserProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => UserRoute,
+} as any)
+const UserProductsRoute = UserProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => UserRoute,
+} as any)
+const UserNotificationsRoute = UserNotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => UserRoute,
+} as any)
+const UserComplaintsRoute = UserComplaintsRouteImport.update({
+  id: '/complaints',
+  path: '/complaints',
+  getParentRoute: () => UserRoute,
+} as any)
+const UserCardRoute = UserCardRouteImport.update({
+  id: '/card',
+  path: '/card',
+  getParentRoute: () => UserRoute,
+} as any)
+const UserBookTokenRoute = UserBookTokenRouteImport.update({
+  id: '/book-token',
+  path: '/book-token',
+  getParentRoute: () => UserRoute,
+} as any)
+const ShopVerifyRoute = ShopVerifyRouteImport.update({
+  id: '/verify',
+  path: '/verify',
+  getParentRoute: () => ShopRoute,
+} as any)
+const ShopTokensRoute = ShopTokensRouteImport.update({
+  id: '/tokens',
+  path: '/tokens',
+  getParentRoute: () => ShopRoute,
+} as any)
+const ShopStockRoute = ShopStockRouteImport.update({
+  id: '/stock',
+  path: '/stock',
+  getParentRoute: () => ShopRoute,
+} as any)
+const ShopReportRoute = ShopReportRouteImport.update({
+  id: '/report',
+  path: '/report',
+  getParentRoute: () => ShopRoute,
+} as any)
+const ShopReceiptsRoute = ShopReceiptsRouteImport.update({
+  id: '/receipts',
+  path: '/receipts',
+  getParentRoute: () => ShopRoute,
+} as any)
+const ShopIssueRoute = ShopIssueRouteImport.update({
+  id: '/issue',
+  path: '/issue',
+  getParentRoute: () => ShopRoute,
+} as any)
+const LoginUserRoute = LoginUserRouteImport.update({
+  id: '/login/user',
+  path: '/login/user',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginShopkeeperRoute = LoginShopkeeperRouteImport.update({
+  id: '/login/shopkeeper',
+  path: '/login/shopkeeper',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginAdminRoute = LoginAdminRouteImport.update({
+  id: '/login/admin',
+  path: '/login/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminUsersRoute = AdminUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminStocksRoute = AdminStocksRouteImport.update({
+  id: '/stocks',
+  path: '/stocks',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminShopsRoute = AdminShopsRouteImport.update({
+  id: '/shops',
+  path: '/shops',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminShopkeepersRoute = AdminShopkeepersRouteImport.update({
+  id: '/shopkeepers',
+  path: '/shopkeepers',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminReportsRoute = AdminReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminProductsRoute = AdminProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminComplaintsRoute = AdminComplaintsRouteImport.update({
+  id: '/complaints',
+  path: '/complaints',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminCardRequestsRoute = AdminCardRequestsRouteImport.update({
+  id: '/card-requests',
+  path: '/card-requests',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAnnouncementsRoute = AdminAnnouncementsRouteImport.update({
+  id: '/announcements',
+  path: '/announcements',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAddressRequestsRoute = AdminAddressRequestsRouteImport.update({
+  id: '/address-requests',
+  path: '/address-requests',
+  getParentRoute: () => AdminRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/register': typeof RegisterRoute
+  '/shop': typeof ShopRouteWithChildren
+  '/user': typeof UserRouteWithChildren
+  '/admin/address-requests': typeof AdminAddressRequestsRoute
+  '/admin/announcements': typeof AdminAnnouncementsRoute
+  '/admin/card-requests': typeof AdminCardRequestsRoute
+  '/admin/complaints': typeof AdminComplaintsRoute
+  '/admin/products': typeof AdminProductsRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/shopkeepers': typeof AdminShopkeepersRoute
+  '/admin/shops': typeof AdminShopsRoute
+  '/admin/stocks': typeof AdminStocksRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/login/admin': typeof LoginAdminRoute
+  '/login/shopkeeper': typeof LoginShopkeeperRoute
+  '/login/user': typeof LoginUserRoute
+  '/shop/issue': typeof ShopIssueRoute
+  '/shop/receipts': typeof ShopReceiptsRoute
+  '/shop/report': typeof ShopReportRoute
+  '/shop/stock': typeof ShopStockRoute
+  '/shop/tokens': typeof ShopTokensRoute
+  '/shop/verify': typeof ShopVerifyRoute
+  '/user/book-token': typeof UserBookTokenRoute
+  '/user/card': typeof UserCardRoute
+  '/user/complaints': typeof UserComplaintsRoute
+  '/user/notifications': typeof UserNotificationsRoute
+  '/user/products': typeof UserProductsRoute
+  '/user/profile': typeof UserProfileRoute
+  '/user/purchases': typeof UserPurchasesRoute
+  '/user/tokens': typeof UserTokensRoute
+  '/admin/': typeof AdminIndexRoute
+  '/shop/': typeof ShopIndexRoute
+  '/user/': typeof UserIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/register': typeof RegisterRoute
+  '/admin/address-requests': typeof AdminAddressRequestsRoute
+  '/admin/announcements': typeof AdminAnnouncementsRoute
+  '/admin/card-requests': typeof AdminCardRequestsRoute
+  '/admin/complaints': typeof AdminComplaintsRoute
+  '/admin/products': typeof AdminProductsRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/shopkeepers': typeof AdminShopkeepersRoute
+  '/admin/shops': typeof AdminShopsRoute
+  '/admin/stocks': typeof AdminStocksRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/login/admin': typeof LoginAdminRoute
+  '/login/shopkeeper': typeof LoginShopkeeperRoute
+  '/login/user': typeof LoginUserRoute
+  '/shop/issue': typeof ShopIssueRoute
+  '/shop/receipts': typeof ShopReceiptsRoute
+  '/shop/report': typeof ShopReportRoute
+  '/shop/stock': typeof ShopStockRoute
+  '/shop/tokens': typeof ShopTokensRoute
+  '/shop/verify': typeof ShopVerifyRoute
+  '/user/book-token': typeof UserBookTokenRoute
+  '/user/card': typeof UserCardRoute
+  '/user/complaints': typeof UserComplaintsRoute
+  '/user/notifications': typeof UserNotificationsRoute
+  '/user/products': typeof UserProductsRoute
+  '/user/profile': typeof UserProfileRoute
+  '/user/purchases': typeof UserPurchasesRoute
+  '/user/tokens': typeof UserTokensRoute
+  '/admin': typeof AdminIndexRoute
+  '/shop': typeof ShopIndexRoute
+  '/user': typeof UserIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/register': typeof RegisterRoute
+  '/shop': typeof ShopRouteWithChildren
+  '/user': typeof UserRouteWithChildren
+  '/admin/address-requests': typeof AdminAddressRequestsRoute
+  '/admin/announcements': typeof AdminAnnouncementsRoute
+  '/admin/card-requests': typeof AdminCardRequestsRoute
+  '/admin/complaints': typeof AdminComplaintsRoute
+  '/admin/products': typeof AdminProductsRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/shopkeepers': typeof AdminShopkeepersRoute
+  '/admin/shops': typeof AdminShopsRoute
+  '/admin/stocks': typeof AdminStocksRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/login/admin': typeof LoginAdminRoute
+  '/login/shopkeeper': typeof LoginShopkeeperRoute
+  '/login/user': typeof LoginUserRoute
+  '/shop/issue': typeof ShopIssueRoute
+  '/shop/receipts': typeof ShopReceiptsRoute
+  '/shop/report': typeof ShopReportRoute
+  '/shop/stock': typeof ShopStockRoute
+  '/shop/tokens': typeof ShopTokensRoute
+  '/shop/verify': typeof ShopVerifyRoute
+  '/user/book-token': typeof UserBookTokenRoute
+  '/user/card': typeof UserCardRoute
+  '/user/complaints': typeof UserComplaintsRoute
+  '/user/notifications': typeof UserNotificationsRoute
+  '/user/products': typeof UserProductsRoute
+  '/user/profile': typeof UserProfileRoute
+  '/user/purchases': typeof UserPurchasesRoute
+  '/user/tokens': typeof UserTokensRoute
+  '/admin/': typeof AdminIndexRoute
+  '/shop/': typeof ShopIndexRoute
+  '/user/': typeof UserIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/register'
+    | '/shop'
+    | '/user'
+    | '/admin/address-requests'
+    | '/admin/announcements'
+    | '/admin/card-requests'
+    | '/admin/complaints'
+    | '/admin/products'
+    | '/admin/reports'
+    | '/admin/settings'
+    | '/admin/shopkeepers'
+    | '/admin/shops'
+    | '/admin/stocks'
+    | '/admin/users'
+    | '/login/admin'
+    | '/login/shopkeeper'
+    | '/login/user'
+    | '/shop/issue'
+    | '/shop/receipts'
+    | '/shop/report'
+    | '/shop/stock'
+    | '/shop/tokens'
+    | '/shop/verify'
+    | '/user/book-token'
+    | '/user/card'
+    | '/user/complaints'
+    | '/user/notifications'
+    | '/user/products'
+    | '/user/profile'
+    | '/user/purchases'
+    | '/user/tokens'
+    | '/admin/'
+    | '/shop/'
+    | '/user/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/register'
+    | '/admin/address-requests'
+    | '/admin/announcements'
+    | '/admin/card-requests'
+    | '/admin/complaints'
+    | '/admin/products'
+    | '/admin/reports'
+    | '/admin/settings'
+    | '/admin/shopkeepers'
+    | '/admin/shops'
+    | '/admin/stocks'
+    | '/admin/users'
+    | '/login/admin'
+    | '/login/shopkeeper'
+    | '/login/user'
+    | '/shop/issue'
+    | '/shop/receipts'
+    | '/shop/report'
+    | '/shop/stock'
+    | '/shop/tokens'
+    | '/shop/verify'
+    | '/user/book-token'
+    | '/user/card'
+    | '/user/complaints'
+    | '/user/notifications'
+    | '/user/products'
+    | '/user/profile'
+    | '/user/purchases'
+    | '/user/tokens'
+    | '/admin'
+    | '/shop'
+    | '/user'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/register'
+    | '/shop'
+    | '/user'
+    | '/admin/address-requests'
+    | '/admin/announcements'
+    | '/admin/card-requests'
+    | '/admin/complaints'
+    | '/admin/products'
+    | '/admin/reports'
+    | '/admin/settings'
+    | '/admin/shopkeepers'
+    | '/admin/shops'
+    | '/admin/stocks'
+    | '/admin/users'
+    | '/login/admin'
+    | '/login/shopkeeper'
+    | '/login/user'
+    | '/shop/issue'
+    | '/shop/receipts'
+    | '/shop/report'
+    | '/shop/stock'
+    | '/shop/tokens'
+    | '/shop/verify'
+    | '/user/book-token'
+    | '/user/card'
+    | '/user/complaints'
+    | '/user/notifications'
+    | '/user/products'
+    | '/user/profile'
+    | '/user/purchases'
+    | '/user/tokens'
+    | '/admin/'
+    | '/shop/'
+    | '/user/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRouteWithChildren
+  RegisterRoute: typeof RegisterRoute
+  ShopRoute: typeof ShopRouteWithChildren
+  UserRoute: typeof UserRouteWithChildren
+  LoginAdminRoute: typeof LoginAdminRoute
+  LoginShopkeeperRoute: typeof LoginShopkeeperRoute
+  LoginUserRoute: typeof LoginUserRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/user': {
+      id: '/user'
+      path: '/user'
+      fullPath: '/user'
+      preLoaderRoute: typeof UserRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shop': {
+      id: '/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +501,316 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/user/': {
+      id: '/user/'
+      path: '/'
+      fullPath: '/user/'
+      preLoaderRoute: typeof UserIndexRouteImport
+      parentRoute: typeof UserRoute
+    }
+    '/shop/': {
+      id: '/shop/'
+      path: '/'
+      fullPath: '/shop/'
+      preLoaderRoute: typeof ShopIndexRouteImport
+      parentRoute: typeof ShopRoute
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/user/tokens': {
+      id: '/user/tokens'
+      path: '/tokens'
+      fullPath: '/user/tokens'
+      preLoaderRoute: typeof UserTokensRouteImport
+      parentRoute: typeof UserRoute
+    }
+    '/user/purchases': {
+      id: '/user/purchases'
+      path: '/purchases'
+      fullPath: '/user/purchases'
+      preLoaderRoute: typeof UserPurchasesRouteImport
+      parentRoute: typeof UserRoute
+    }
+    '/user/profile': {
+      id: '/user/profile'
+      path: '/profile'
+      fullPath: '/user/profile'
+      preLoaderRoute: typeof UserProfileRouteImport
+      parentRoute: typeof UserRoute
+    }
+    '/user/products': {
+      id: '/user/products'
+      path: '/products'
+      fullPath: '/user/products'
+      preLoaderRoute: typeof UserProductsRouteImport
+      parentRoute: typeof UserRoute
+    }
+    '/user/notifications': {
+      id: '/user/notifications'
+      path: '/notifications'
+      fullPath: '/user/notifications'
+      preLoaderRoute: typeof UserNotificationsRouteImport
+      parentRoute: typeof UserRoute
+    }
+    '/user/complaints': {
+      id: '/user/complaints'
+      path: '/complaints'
+      fullPath: '/user/complaints'
+      preLoaderRoute: typeof UserComplaintsRouteImport
+      parentRoute: typeof UserRoute
+    }
+    '/user/card': {
+      id: '/user/card'
+      path: '/card'
+      fullPath: '/user/card'
+      preLoaderRoute: typeof UserCardRouteImport
+      parentRoute: typeof UserRoute
+    }
+    '/user/book-token': {
+      id: '/user/book-token'
+      path: '/book-token'
+      fullPath: '/user/book-token'
+      preLoaderRoute: typeof UserBookTokenRouteImport
+      parentRoute: typeof UserRoute
+    }
+    '/shop/verify': {
+      id: '/shop/verify'
+      path: '/verify'
+      fullPath: '/shop/verify'
+      preLoaderRoute: typeof ShopVerifyRouteImport
+      parentRoute: typeof ShopRoute
+    }
+    '/shop/tokens': {
+      id: '/shop/tokens'
+      path: '/tokens'
+      fullPath: '/shop/tokens'
+      preLoaderRoute: typeof ShopTokensRouteImport
+      parentRoute: typeof ShopRoute
+    }
+    '/shop/stock': {
+      id: '/shop/stock'
+      path: '/stock'
+      fullPath: '/shop/stock'
+      preLoaderRoute: typeof ShopStockRouteImport
+      parentRoute: typeof ShopRoute
+    }
+    '/shop/report': {
+      id: '/shop/report'
+      path: '/report'
+      fullPath: '/shop/report'
+      preLoaderRoute: typeof ShopReportRouteImport
+      parentRoute: typeof ShopRoute
+    }
+    '/shop/receipts': {
+      id: '/shop/receipts'
+      path: '/receipts'
+      fullPath: '/shop/receipts'
+      preLoaderRoute: typeof ShopReceiptsRouteImport
+      parentRoute: typeof ShopRoute
+    }
+    '/shop/issue': {
+      id: '/shop/issue'
+      path: '/issue'
+      fullPath: '/shop/issue'
+      preLoaderRoute: typeof ShopIssueRouteImport
+      parentRoute: typeof ShopRoute
+    }
+    '/login/user': {
+      id: '/login/user'
+      path: '/login/user'
+      fullPath: '/login/user'
+      preLoaderRoute: typeof LoginUserRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login/shopkeeper': {
+      id: '/login/shopkeeper'
+      path: '/login/shopkeeper'
+      fullPath: '/login/shopkeeper'
+      preLoaderRoute: typeof LoginShopkeeperRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login/admin': {
+      id: '/login/admin'
+      path: '/login/admin'
+      fullPath: '/login/admin'
+      preLoaderRoute: typeof LoginAdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/users': {
+      id: '/admin/users'
+      path: '/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminUsersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/stocks': {
+      id: '/admin/stocks'
+      path: '/stocks'
+      fullPath: '/admin/stocks'
+      preLoaderRoute: typeof AdminStocksRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/shops': {
+      id: '/admin/shops'
+      path: '/shops'
+      fullPath: '/admin/shops'
+      preLoaderRoute: typeof AdminShopsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/shopkeepers': {
+      id: '/admin/shopkeepers'
+      path: '/shopkeepers'
+      fullPath: '/admin/shopkeepers'
+      preLoaderRoute: typeof AdminShopkeepersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/reports': {
+      id: '/admin/reports'
+      path: '/reports'
+      fullPath: '/admin/reports'
+      preLoaderRoute: typeof AdminReportsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/products': {
+      id: '/admin/products'
+      path: '/products'
+      fullPath: '/admin/products'
+      preLoaderRoute: typeof AdminProductsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/complaints': {
+      id: '/admin/complaints'
+      path: '/complaints'
+      fullPath: '/admin/complaints'
+      preLoaderRoute: typeof AdminComplaintsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/card-requests': {
+      id: '/admin/card-requests'
+      path: '/card-requests'
+      fullPath: '/admin/card-requests'
+      preLoaderRoute: typeof AdminCardRequestsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/announcements': {
+      id: '/admin/announcements'
+      path: '/announcements'
+      fullPath: '/admin/announcements'
+      preLoaderRoute: typeof AdminAnnouncementsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/address-requests': {
+      id: '/admin/address-requests'
+      path: '/address-requests'
+      fullPath: '/admin/address-requests'
+      preLoaderRoute: typeof AdminAddressRequestsRouteImport
+      parentRoute: typeof AdminRoute
+    }
   }
 }
 
+interface AdminRouteChildren {
+  AdminAddressRequestsRoute: typeof AdminAddressRequestsRoute
+  AdminAnnouncementsRoute: typeof AdminAnnouncementsRoute
+  AdminCardRequestsRoute: typeof AdminCardRequestsRoute
+  AdminComplaintsRoute: typeof AdminComplaintsRoute
+  AdminProductsRoute: typeof AdminProductsRoute
+  AdminReportsRoute: typeof AdminReportsRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
+  AdminShopkeepersRoute: typeof AdminShopkeepersRoute
+  AdminShopsRoute: typeof AdminShopsRoute
+  AdminStocksRoute: typeof AdminStocksRoute
+  AdminUsersRoute: typeof AdminUsersRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminAddressRequestsRoute: AdminAddressRequestsRoute,
+  AdminAnnouncementsRoute: AdminAnnouncementsRoute,
+  AdminCardRequestsRoute: AdminCardRequestsRoute,
+  AdminComplaintsRoute: AdminComplaintsRoute,
+  AdminProductsRoute: AdminProductsRoute,
+  AdminReportsRoute: AdminReportsRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
+  AdminShopkeepersRoute: AdminShopkeepersRoute,
+  AdminShopsRoute: AdminShopsRoute,
+  AdminStocksRoute: AdminStocksRoute,
+  AdminUsersRoute: AdminUsersRoute,
+  AdminIndexRoute: AdminIndexRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
+interface ShopRouteChildren {
+  ShopIssueRoute: typeof ShopIssueRoute
+  ShopReceiptsRoute: typeof ShopReceiptsRoute
+  ShopReportRoute: typeof ShopReportRoute
+  ShopStockRoute: typeof ShopStockRoute
+  ShopTokensRoute: typeof ShopTokensRoute
+  ShopVerifyRoute: typeof ShopVerifyRoute
+  ShopIndexRoute: typeof ShopIndexRoute
+}
+
+const ShopRouteChildren: ShopRouteChildren = {
+  ShopIssueRoute: ShopIssueRoute,
+  ShopReceiptsRoute: ShopReceiptsRoute,
+  ShopReportRoute: ShopReportRoute,
+  ShopStockRoute: ShopStockRoute,
+  ShopTokensRoute: ShopTokensRoute,
+  ShopVerifyRoute: ShopVerifyRoute,
+  ShopIndexRoute: ShopIndexRoute,
+}
+
+const ShopRouteWithChildren = ShopRoute._addFileChildren(ShopRouteChildren)
+
+interface UserRouteChildren {
+  UserBookTokenRoute: typeof UserBookTokenRoute
+  UserCardRoute: typeof UserCardRoute
+  UserComplaintsRoute: typeof UserComplaintsRoute
+  UserNotificationsRoute: typeof UserNotificationsRoute
+  UserProductsRoute: typeof UserProductsRoute
+  UserProfileRoute: typeof UserProfileRoute
+  UserPurchasesRoute: typeof UserPurchasesRoute
+  UserTokensRoute: typeof UserTokensRoute
+  UserIndexRoute: typeof UserIndexRoute
+}
+
+const UserRouteChildren: UserRouteChildren = {
+  UserBookTokenRoute: UserBookTokenRoute,
+  UserCardRoute: UserCardRoute,
+  UserComplaintsRoute: UserComplaintsRoute,
+  UserNotificationsRoute: UserNotificationsRoute,
+  UserProductsRoute: UserProductsRoute,
+  UserProfileRoute: UserProfileRoute,
+  UserPurchasesRoute: UserPurchasesRoute,
+  UserTokensRoute: UserTokensRoute,
+  UserIndexRoute: UserIndexRoute,
+}
+
+const UserRouteWithChildren = UserRoute._addFileChildren(UserRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRouteWithChildren,
+  RegisterRoute: RegisterRoute,
+  ShopRoute: ShopRouteWithChildren,
+  UserRoute: UserRouteWithChildren,
+  LoginAdminRoute: LoginAdminRoute,
+  LoginShopkeeperRoute: LoginShopkeeperRoute,
+  LoginUserRoute: LoginUserRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

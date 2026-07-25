@@ -1,29 +1,31 @@
-# Welcome to your Lovable project
+# Smart Ration Management System
 
-This project was built with [Lovable](https://lovable.dev).
+A modern web application to digitize the Public Distribution System — manage ration shops, users, products, monthly distribution, tokens and complaints in one place.
 
-## Build with Lovable
+## Roles
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+- **Admin** — manages the entire system (users, shopkeepers, shops, products, approvals, reports).
+- **User (citizen)** — registers with a ration card number, views the digital ration card, books monthly tokens, tracks purchases, raises complaints.
+- **Shop Keeper** — verifies users, issues monthly products, generates receipts, updates stock.
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+## Default Admin Credentials
 
-## Development
+The default admin account is created automatically the first time the app loads.
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
 ```
+Email    : admin@ration.gov.in
+Password : Admin@123
+```
+
+Use these credentials at the **Admin Login** page. Change the password after your first sign-in from the Admin → Settings screen.
+
+## Registration
+
+- **Only Users can register** through the Registration page.
+- **Admins and Shop Keepers do not have public registration.** Shop Keeper accounts are created by the Admin from the Admin Dashboard.
 
 ## Built with
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+- React 19 + TanStack Start (file-based routing, SSR)
+- Tailwind CSS v4
+- Lovable Cloud (Postgres, Auth, Storage) — production-grade backend
