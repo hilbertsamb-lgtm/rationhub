@@ -14,9 +14,9 @@ function UserCard() {
 
   const download = async () => {
     // Use html2canvas via CDN dynamically to avoid extra dependencies
-    const html2canvas = (await import("https://esm.sh/html2canvas-pro@1.5.8" as any)).default;
+    const { default: html2canvas } = await import("html2canvas");
     if (!ref.current) return;
-    const canvas = await html2canvas(ref.current, { backgroundColor: null, scale: 2 });
+    const canvas = await html2canvas(ref.current, { scale: 2 });
     const link = document.createElement("a");
     link.download = `ration-card-${profile?.ration_card_number ?? "card"}.png`;
     link.href = canvas.toDataURL("image/png");
