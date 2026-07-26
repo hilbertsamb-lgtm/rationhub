@@ -28,6 +28,7 @@ const nav = [
   { to: "/user/complaints", label: "Complaints", icon: MessageSquareWarning },
   { to: "/user/notifications", label: "Notifications", icon: Bell },
   { to: "/user/profile", label: "My Profile", icon: UserCog },
+  { to: "/user/address-request", label: "Address Change", icon: MapPinned },
 ];
 
 function UserLayout() {
