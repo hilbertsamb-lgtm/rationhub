@@ -17,8 +17,6 @@ import {
   Sparkles,
   ArrowRight,
   MapPin,
-  Mail,
-  Phone,
   ScrollText,
   Wallet,
   TicketCheck,
