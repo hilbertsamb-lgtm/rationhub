@@ -23,6 +23,8 @@ import {
   Wallet,
   TicketCheck,
   BellRing,
+  Github,
+  Linkedin,
 } from "lucide-react";
 import { ensureDefaultAdmin } from "@/lib/admin.functions";
 import { useAuth } from "@/lib/auth-context";
@@ -268,18 +270,32 @@ function Landing() {
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             <Card className="p-6">
               <MapPin className="mb-3 h-6 w-6 text-primary" />
-              <div className="font-semibold">Head Office</div>
-              <p className="mt-1 text-sm text-muted-foreground">Ministry of Consumer Affairs, Food & Public Distribution, New Delhi</p>
+              <div className="font-semibold">SmartRation Hub</div>
+              <p className="mt-1 text-sm text-muted-foreground">Chennai, Tamil Nadu, India</p>
             </Card>
             <Card className="p-6">
-              <Mail className="mb-3 h-6 w-6 text-primary" />
-              <div className="font-semibold">Email</div>
-              <p className="mt-1 text-sm text-muted-foreground">support@smartration.gov.in</p>
+              <Github className="mb-3 h-6 w-6 text-primary" />
+              <div className="font-semibold">GitHub</div>
+              <a
+                href="https://github.com/hilbertsamb-lgtm"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-1 block text-sm text-muted-foreground hover:text-foreground hover:underline"
+              >
+                github.com/hilbertsamb-lgtm
+              </a>
             </Card>
             <Card className="p-6">
-              <Phone className="mb-3 h-6 w-6 text-primary" />
-              <div className="font-semibold">Helpline</div>
-              <p className="mt-1 text-sm text-muted-foreground">1800-11-0841 (Toll-free, 24×7)</p>
+              <Linkedin className="mb-3 h-6 w-6 text-primary" />
+              <div className="font-semibold">LinkedIn</div>
+              <a
+                href="https://www.linkedin.com/in/b-hilbert-sam-311282372"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-1 block text-sm text-muted-foreground hover:text-foreground hover:underline"
+              >
+                B. Hilbert Sam
+              </a>
             </Card>
           </div>
         </div>
