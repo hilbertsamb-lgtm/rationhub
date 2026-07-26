@@ -55,7 +55,7 @@ function UserTokens() {
         const day = new Date(t.booked_at);
         const start = new Date(day); start.setHours(0, 0, 0, 0);
         const end = new Date(day); end.setHours(23, 59, 59, 999);
-        const { data: ahead } = await supabase
+        const { count } = await supabase
           .from("tokens")
           .select("id", { count: "exact", head: true })
           .eq("shop_id", t.shop_id)
@@ -63,8 +63,7 @@ function UserTokens() {
           .lt("booked_at", t.booked_at)
           .gte("booked_at", start.toISOString())
           .lte("booked_at", end.toISOString());
-        map[t.id] = ahead === null ? 0 : (ahead as any) ?? 0;
-        // Supabase head+count returns count in response
+        map[t.id] = count ?? 0;
       }
       return map;
     },
