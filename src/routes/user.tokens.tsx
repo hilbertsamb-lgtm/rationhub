@@ -59,7 +59,7 @@ function UserTokens() {
           .from("tokens")
           .select("id", { count: "exact", head: true })
           .eq("shop_id", t.shop_id)
-          .in("status", ACTIVE_STATUSES)
+          .in("status", [...ACTIVE_STATUSES])
           .lt("booked_at", t.booked_at)
           .gte("booked_at", start.toISOString())
           .lte("booked_at", end.toISOString());
