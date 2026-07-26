@@ -10,6 +10,7 @@ import {
   MessageSquareWarning,
   Bell,
   UserCog,
+  MapPinned,
 } from "lucide-react";
 
 export const Route = createFileRoute("/user")({
