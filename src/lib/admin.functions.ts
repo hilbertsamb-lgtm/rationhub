@@ -101,19 +101,8 @@ export const deleteShopkeeper = createServerFn({ method: "POST" })
 export const emailForRationCard = createServerFn({ method: "POST" })
   .inputValidator((d: { card: string }) => z.object({ card: z.string().min(1) }).parse(d))
   .handler(async ({ data }) => {
-    const { createClient } = await import("@supabase/supabase-js");
-    const key = process.env.SUPABASE_PUBLISHABLE_KEY!;
-    const client = createClient(process.env.SUPABASE_URL!, key, {
-      auth: { persistSession: false },
-      global: {
-        fetch: (input, init) => {
-          const h = new Headers(init?.headers);
-          if (key.startsWith("sb_") && h.get("Authorization") === `Bearer ${key}`) h.delete("Authorization");
-          h.set("apikey", key);
-          return fetch(input, { ...init, headers: h });
-        },
-      },
-    });
-    const { data: email } = await client.rpc("email_for_ration_card", { _card: data.card });
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { data: email } = await supabaseAdmin.rpc("email_for_ration_card", { _card: data.card });
     return { email: (email as string | null) ?? null };
   });
+
