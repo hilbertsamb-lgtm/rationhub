@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { PageHeader } from "@/components/dashboard-layout";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { productImageUrl } from "@/lib/storage";
+import { ProductImage } from "@/components/product-image";
 
 export const Route = createFileRoute("/user/products")({ component: UserProducts });
 
@@ -20,7 +20,7 @@ function UserProducts() {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {(data ?? []).map((p: any) => (
           <Card key={p.id} className="overflow-hidden">
-            <div className="aspect-video bg-muted"><img src={productImageUrl(p.image_path)} alt={p.name} className="h-full w-full object-cover" /></div>
+            <div className="aspect-video bg-muted"><ProductImage path={p.image_path} alt={p.name} className="h-full w-full object-cover" /></div>
             <div className="p-4">
               <div className="flex items-center justify-between">
                 <div className="font-semibold">{p.name}</div>
