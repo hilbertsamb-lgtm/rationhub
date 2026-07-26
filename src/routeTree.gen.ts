@@ -37,6 +37,7 @@ import { Route as LoginShopkeeperRouteImport } from './routes/login.shopkeeper'
 import { Route as LoginAdminRouteImport } from './routes/login.admin'
 import { Route as AdminUsersRouteImport } from './routes/admin.users'
 import { Route as AdminStocksRouteImport } from './routes/admin.stocks'
+import { Route as AdminStockRequestsRouteImport } from './routes/admin.stock-requests'
 import { Route as AdminShopsRouteImport } from './routes/admin.shops'
 import { Route as AdminShopkeepersRouteImport } from './routes/admin.shopkeepers'
 import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
@@ -187,6 +188,11 @@ const AdminStocksRoute = AdminStocksRouteImport.update({
   path: '/stocks',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminStockRequestsRoute = AdminStockRequestsRouteImport.update({
+  id: '/stock-requests',
+  path: '/stock-requests',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminShopsRoute = AdminShopsRouteImport.update({
   id: '/shops',
   path: '/shops',
@@ -248,6 +254,7 @@ export interface FileRoutesByFullPath {
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/shopkeepers': typeof AdminShopkeepersRoute
   '/admin/shops': typeof AdminShopsRoute
+  '/admin/stock-requests': typeof AdminStockRequestsRoute
   '/admin/stocks': typeof AdminStocksRoute
   '/admin/users': typeof AdminUsersRoute
   '/login/admin': typeof LoginAdminRoute
@@ -284,6 +291,7 @@ export interface FileRoutesByTo {
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/shopkeepers': typeof AdminShopkeepersRoute
   '/admin/shops': typeof AdminShopsRoute
+  '/admin/stock-requests': typeof AdminStockRequestsRoute
   '/admin/stocks': typeof AdminStocksRoute
   '/admin/users': typeof AdminUsersRoute
   '/login/admin': typeof LoginAdminRoute
@@ -324,6 +332,7 @@ export interface FileRoutesById {
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/shopkeepers': typeof AdminShopkeepersRoute
   '/admin/shops': typeof AdminShopsRoute
+  '/admin/stock-requests': typeof AdminStockRequestsRoute
   '/admin/stocks': typeof AdminStocksRoute
   '/admin/users': typeof AdminUsersRoute
   '/login/admin': typeof LoginAdminRoute
@@ -365,6 +374,7 @@ export interface FileRouteTypes {
     | '/admin/settings'
     | '/admin/shopkeepers'
     | '/admin/shops'
+    | '/admin/stock-requests'
     | '/admin/stocks'
     | '/admin/users'
     | '/login/admin'
@@ -401,6 +411,7 @@ export interface FileRouteTypes {
     | '/admin/settings'
     | '/admin/shopkeepers'
     | '/admin/shops'
+    | '/admin/stock-requests'
     | '/admin/stocks'
     | '/admin/users'
     | '/login/admin'
@@ -440,6 +451,7 @@ export interface FileRouteTypes {
     | '/admin/settings'
     | '/admin/shopkeepers'
     | '/admin/shops'
+    | '/admin/stock-requests'
     | '/admin/stocks'
     | '/admin/users'
     | '/login/admin'
@@ -674,6 +686,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminStocksRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/stock-requests': {
+      id: '/admin/stock-requests'
+      path: '/stock-requests'
+      fullPath: '/admin/stock-requests'
+      preLoaderRoute: typeof AdminStockRequestsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/shops': {
       id: '/admin/shops'
       path: '/shops'
@@ -750,6 +769,7 @@ interface AdminRouteChildren {
   AdminSettingsRoute: typeof AdminSettingsRoute
   AdminShopkeepersRoute: typeof AdminShopkeepersRoute
   AdminShopsRoute: typeof AdminShopsRoute
+  AdminStockRequestsRoute: typeof AdminStockRequestsRoute
   AdminStocksRoute: typeof AdminStocksRoute
   AdminUsersRoute: typeof AdminUsersRoute
   AdminIndexRoute: typeof AdminIndexRoute
@@ -765,6 +785,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminSettingsRoute: AdminSettingsRoute,
   AdminShopkeepersRoute: AdminShopkeepersRoute,
   AdminShopsRoute: AdminShopsRoute,
+  AdminStockRequestsRoute: AdminStockRequestsRoute,
   AdminStocksRoute: AdminStocksRoute,
   AdminUsersRoute: AdminUsersRoute,
   AdminIndexRoute: AdminIndexRoute,
