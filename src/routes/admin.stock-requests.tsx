@@ -90,7 +90,7 @@ function AdminStockRequests() {
                   Requested: {r.quantity} {r.products?.unit} · Current stock: {r.products?.stock} {r.products?.unit}
                 </div>
                 <div className="text-xs text-muted-foreground">
-                  By {r.profiles?.full_name ?? "Shop keeper"} ({r.profiles?.email})
+                  By {r.profile?.full_name ?? "Shop keeper"} ({r.profile?.email})
                 </div>
                 <div className="mt-2 text-sm">{r.reason}</div>
                 {r.admin_note && <div className="mt-1 text-xs text-muted-foreground">Note: {r.admin_note}</div>}
