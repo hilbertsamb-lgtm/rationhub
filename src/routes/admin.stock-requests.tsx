@@ -20,11 +20,18 @@ function AdminStockRequests() {
 
   const { data } = useQuery({
     queryKey: ["admin-stock-requests"],
-    queryFn: async () =>
-      (await supabase
+    queryFn: async () => {
+      const rows = (await supabase
         .from("stock_requests")
-        .select("*, products(id, name, unit, stock, image_path), profiles:requested_by(full_name, email)")
-        .order("created_at", { ascending: false })).data ?? [],
+        .select("*, products(id, name, unit, stock, image_path)")
+        .order("created_at", { ascending: false })).data ?? [];
+      const ids = Array.from(new Set(rows.map((r: any) => r.requested_by)));
+      const profiles = ids.length
+        ? (await supabase.from("profiles").select("id, full_name, email").in("id", ids)).data ?? []
+        : [];
+      const pMap = new Map(profiles.map((p: any) => [p.id, p]));
+      return rows.map((r: any) => ({ ...r, profile: pMap.get(r.requested_by) }));
+    },
   });
 
   const decide = useMutation({
