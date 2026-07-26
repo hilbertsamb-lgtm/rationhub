@@ -30,7 +30,7 @@ import { useAuth } from "@/lib/auth-context";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SmartRation Hub — Digital Public Distribution" },
+      { title: "SmartRation Hub" },
       { name: "description", content: "A modern Smart Ration Management System that digitizes the Public Distribution System — manage ration shops, users, products, tokens and monthly distribution transparently." },
       { property: "og:title", content: "SmartRation Hub" },
       { property: "og:description", content: "Digital PDS platform for admins, citizens and shop keepers." },
