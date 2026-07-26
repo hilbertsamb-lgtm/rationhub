@@ -353,30 +353,42 @@ export type Database = {
           booked_at: string
           collected_at: string | null
           id: string
+          items: Json
           month: string
+          payment_ref: string | null
+          payment_status: string
           shop_id: string
           status: Database["public"]["Enums"]["token_status"]
           token_number: string
+          total: number
           user_id: string
         }
         Insert: {
           booked_at?: string
           collected_at?: string | null
           id?: string
+          items?: Json
           month: string
+          payment_ref?: string | null
+          payment_status?: string
           shop_id: string
           status?: Database["public"]["Enums"]["token_status"]
           token_number: string
+          total?: number
           user_id: string
         }
         Update: {
           booked_at?: string
           collected_at?: string | null
           id?: string
+          items?: Json
           month?: string
+          payment_ref?: string | null
+          payment_status?: string
           shop_id?: string
           status?: Database["public"]["Enums"]["token_status"]
           token_number?: string
+          total?: number
           user_id?: string
         }
         Relationships: [
@@ -430,7 +442,15 @@ export type Database = {
       complaint_status: "open" | "in_progress" | "resolved" | "closed"
       product_status: "available" | "out_of_stock"
       request_status: "pending" | "approved" | "rejected"
-      token_status: "booked" | "collected" | "cancelled" | "expired"
+      token_status:
+        | "booked"
+        | "collected"
+        | "cancelled"
+        | "expired"
+        | "waiting"
+        | "called"
+        | "processing"
+        | "completed"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -562,7 +582,16 @@ export const Constants = {
       complaint_status: ["open", "in_progress", "resolved", "closed"],
       product_status: ["available", "out_of_stock"],
       request_status: ["pending", "approved", "rejected"],
-      token_status: ["booked", "collected", "cancelled", "expired"],
+      token_status: [
+        "booked",
+        "collected",
+        "cancelled",
+        "expired",
+        "waiting",
+        "called",
+        "processing",
+        "completed",
+      ],
     },
   },
 } as const
