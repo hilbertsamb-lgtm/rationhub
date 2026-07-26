@@ -12,6 +12,7 @@ import {
   MessageSquareWarning,
   Megaphone,
   Settings,
+  PackagePlus,
 } from "lucide-react";
 
 export const Route = createFileRoute("/admin")({
@@ -26,6 +27,7 @@ const nav = [
   { to: "/admin/shops", label: "Ration Shops", icon: MapPin },
   { to: "/admin/products", label: "Products", icon: Package },
   { to: "/admin/stocks", label: "Stocks", icon: Boxes },
+  { to: "/admin/stock-requests", label: "Stock Requests", icon: PackagePlus },
   { to: "/admin/card-requests", label: "Card Requests", icon: ClipboardCheck },
   { to: "/admin/address-requests", label: "Address Changes", icon: ClipboardCheck },
   { to: "/admin/reports", label: "Monthly Reports", icon: FileText },

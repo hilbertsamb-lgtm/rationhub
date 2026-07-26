@@ -27,6 +27,7 @@ import { Route as UserCardRouteImport } from './routes/user.card'
 import { Route as UserBookTokenRouteImport } from './routes/user.book-token'
 import { Route as ShopVerifyRouteImport } from './routes/shop.verify'
 import { Route as ShopTokensRouteImport } from './routes/shop.tokens'
+import { Route as ShopStockRequestsRouteImport } from './routes/shop.stock-requests'
 import { Route as ShopStockRouteImport } from './routes/shop.stock'
 import { Route as ShopReportRouteImport } from './routes/shop.report'
 import { Route as ShopReceiptsRouteImport } from './routes/shop.receipts'
@@ -36,6 +37,7 @@ import { Route as LoginShopkeeperRouteImport } from './routes/login.shopkeeper'
 import { Route as LoginAdminRouteImport } from './routes/login.admin'
 import { Route as AdminUsersRouteImport } from './routes/admin.users'
 import { Route as AdminStocksRouteImport } from './routes/admin.stocks'
+import { Route as AdminStockRequestsRouteImport } from './routes/admin.stock-requests'
 import { Route as AdminShopsRouteImport } from './routes/admin.shops'
 import { Route as AdminShopkeepersRouteImport } from './routes/admin.shopkeepers'
 import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
@@ -136,6 +138,11 @@ const ShopTokensRoute = ShopTokensRouteImport.update({
   path: '/tokens',
   getParentRoute: () => ShopRoute,
 } as any)
+const ShopStockRequestsRoute = ShopStockRequestsRouteImport.update({
+  id: '/stock-requests',
+  path: '/stock-requests',
+  getParentRoute: () => ShopRoute,
+} as any)
 const ShopStockRoute = ShopStockRouteImport.update({
   id: '/stock',
   path: '/stock',
@@ -179,6 +186,11 @@ const AdminUsersRoute = AdminUsersRouteImport.update({
 const AdminStocksRoute = AdminStocksRouteImport.update({
   id: '/stocks',
   path: '/stocks',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminStockRequestsRoute = AdminStockRequestsRouteImport.update({
+  id: '/stock-requests',
+  path: '/stock-requests',
   getParentRoute: () => AdminRoute,
 } as any)
 const AdminShopsRoute = AdminShopsRouteImport.update({
@@ -242,6 +254,7 @@ export interface FileRoutesByFullPath {
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/shopkeepers': typeof AdminShopkeepersRoute
   '/admin/shops': typeof AdminShopsRoute
+  '/admin/stock-requests': typeof AdminStockRequestsRoute
   '/admin/stocks': typeof AdminStocksRoute
   '/admin/users': typeof AdminUsersRoute
   '/login/admin': typeof LoginAdminRoute
@@ -251,6 +264,7 @@ export interface FileRoutesByFullPath {
   '/shop/receipts': typeof ShopReceiptsRoute
   '/shop/report': typeof ShopReportRoute
   '/shop/stock': typeof ShopStockRoute
+  '/shop/stock-requests': typeof ShopStockRequestsRoute
   '/shop/tokens': typeof ShopTokensRoute
   '/shop/verify': typeof ShopVerifyRoute
   '/user/book-token': typeof UserBookTokenRoute
@@ -277,6 +291,7 @@ export interface FileRoutesByTo {
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/shopkeepers': typeof AdminShopkeepersRoute
   '/admin/shops': typeof AdminShopsRoute
+  '/admin/stock-requests': typeof AdminStockRequestsRoute
   '/admin/stocks': typeof AdminStocksRoute
   '/admin/users': typeof AdminUsersRoute
   '/login/admin': typeof LoginAdminRoute
@@ -286,6 +301,7 @@ export interface FileRoutesByTo {
   '/shop/receipts': typeof ShopReceiptsRoute
   '/shop/report': typeof ShopReportRoute
   '/shop/stock': typeof ShopStockRoute
+  '/shop/stock-requests': typeof ShopStockRequestsRoute
   '/shop/tokens': typeof ShopTokensRoute
   '/shop/verify': typeof ShopVerifyRoute
   '/user/book-token': typeof UserBookTokenRoute
@@ -316,6 +332,7 @@ export interface FileRoutesById {
   '/admin/settings': typeof AdminSettingsRoute
   '/admin/shopkeepers': typeof AdminShopkeepersRoute
   '/admin/shops': typeof AdminShopsRoute
+  '/admin/stock-requests': typeof AdminStockRequestsRoute
   '/admin/stocks': typeof AdminStocksRoute
   '/admin/users': typeof AdminUsersRoute
   '/login/admin': typeof LoginAdminRoute
@@ -325,6 +342,7 @@ export interface FileRoutesById {
   '/shop/receipts': typeof ShopReceiptsRoute
   '/shop/report': typeof ShopReportRoute
   '/shop/stock': typeof ShopStockRoute
+  '/shop/stock-requests': typeof ShopStockRequestsRoute
   '/shop/tokens': typeof ShopTokensRoute
   '/shop/verify': typeof ShopVerifyRoute
   '/user/book-token': typeof UserBookTokenRoute
@@ -356,6 +374,7 @@ export interface FileRouteTypes {
     | '/admin/settings'
     | '/admin/shopkeepers'
     | '/admin/shops'
+    | '/admin/stock-requests'
     | '/admin/stocks'
     | '/admin/users'
     | '/login/admin'
@@ -365,6 +384,7 @@ export interface FileRouteTypes {
     | '/shop/receipts'
     | '/shop/report'
     | '/shop/stock'
+    | '/shop/stock-requests'
     | '/shop/tokens'
     | '/shop/verify'
     | '/user/book-token'
@@ -391,6 +411,7 @@ export interface FileRouteTypes {
     | '/admin/settings'
     | '/admin/shopkeepers'
     | '/admin/shops'
+    | '/admin/stock-requests'
     | '/admin/stocks'
     | '/admin/users'
     | '/login/admin'
@@ -400,6 +421,7 @@ export interface FileRouteTypes {
     | '/shop/receipts'
     | '/shop/report'
     | '/shop/stock'
+    | '/shop/stock-requests'
     | '/shop/tokens'
     | '/shop/verify'
     | '/user/book-token'
@@ -429,6 +451,7 @@ export interface FileRouteTypes {
     | '/admin/settings'
     | '/admin/shopkeepers'
     | '/admin/shops'
+    | '/admin/stock-requests'
     | '/admin/stocks'
     | '/admin/users'
     | '/login/admin'
@@ -438,6 +461,7 @@ export interface FileRouteTypes {
     | '/shop/receipts'
     | '/shop/report'
     | '/shop/stock'
+    | '/shop/stock-requests'
     | '/shop/tokens'
     | '/shop/verify'
     | '/user/book-token'
@@ -592,6 +616,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShopTokensRouteImport
       parentRoute: typeof ShopRoute
     }
+    '/shop/stock-requests': {
+      id: '/shop/stock-requests'
+      path: '/stock-requests'
+      fullPath: '/shop/stock-requests'
+      preLoaderRoute: typeof ShopStockRequestsRouteImport
+      parentRoute: typeof ShopRoute
+    }
     '/shop/stock': {
       id: '/shop/stock'
       path: '/stock'
@@ -653,6 +684,13 @@ declare module '@tanstack/react-router' {
       path: '/stocks'
       fullPath: '/admin/stocks'
       preLoaderRoute: typeof AdminStocksRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/stock-requests': {
+      id: '/admin/stock-requests'
+      path: '/stock-requests'
+      fullPath: '/admin/stock-requests'
+      preLoaderRoute: typeof AdminStockRequestsRouteImport
       parentRoute: typeof AdminRoute
     }
     '/admin/shops': {
@@ -731,6 +769,7 @@ interface AdminRouteChildren {
   AdminSettingsRoute: typeof AdminSettingsRoute
   AdminShopkeepersRoute: typeof AdminShopkeepersRoute
   AdminShopsRoute: typeof AdminShopsRoute
+  AdminStockRequestsRoute: typeof AdminStockRequestsRoute
   AdminStocksRoute: typeof AdminStocksRoute
   AdminUsersRoute: typeof AdminUsersRoute
   AdminIndexRoute: typeof AdminIndexRoute
@@ -746,6 +785,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminSettingsRoute: AdminSettingsRoute,
   AdminShopkeepersRoute: AdminShopkeepersRoute,
   AdminShopsRoute: AdminShopsRoute,
+  AdminStockRequestsRoute: AdminStockRequestsRoute,
   AdminStocksRoute: AdminStocksRoute,
   AdminUsersRoute: AdminUsersRoute,
   AdminIndexRoute: AdminIndexRoute,
@@ -758,6 +798,7 @@ interface ShopRouteChildren {
   ShopReceiptsRoute: typeof ShopReceiptsRoute
   ShopReportRoute: typeof ShopReportRoute
   ShopStockRoute: typeof ShopStockRoute
+  ShopStockRequestsRoute: typeof ShopStockRequestsRoute
   ShopTokensRoute: typeof ShopTokensRoute
   ShopVerifyRoute: typeof ShopVerifyRoute
   ShopIndexRoute: typeof ShopIndexRoute
@@ -768,6 +809,7 @@ const ShopRouteChildren: ShopRouteChildren = {
   ShopReceiptsRoute: ShopReceiptsRoute,
   ShopReportRoute: ShopReportRoute,
   ShopStockRoute: ShopStockRoute,
+  ShopStockRequestsRoute: ShopStockRequestsRoute,
   ShopTokensRoute: ShopTokensRoute,
   ShopVerifyRoute: ShopVerifyRoute,
   ShopIndexRoute: ShopIndexRoute,
