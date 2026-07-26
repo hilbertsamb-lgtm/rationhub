@@ -12,7 +12,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
-import { productImageUrl, uploadProductImage } from "@/lib/storage";
+import { uploadProductImage } from "@/lib/storage";
+import { ProductImage } from "@/components/product-image";
 import { Plus, Trash2, ImagePlus } from "lucide-react";
 
 export const Route = createFileRoute("/admin/products")({ component: AdminProducts });
@@ -118,7 +119,7 @@ function AdminProducts() {
         {(data ?? []).map((p: any) => (
           <Card key={p.id} className="overflow-hidden">
             <div className="aspect-video w-full overflow-hidden bg-muted">
-              <img src={productImageUrl(p.image_path)} alt={p.name} className="h-full w-full object-cover" />
+              <ProductImage path={p.image_path} alt={p.name} className="h-full w-full object-cover" />
             </div>
             <div className="p-4">
               <div className="flex items-start justify-between gap-2">

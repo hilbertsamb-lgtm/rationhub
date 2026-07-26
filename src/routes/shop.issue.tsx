@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useAuth } from "@/lib/auth-context";
-import { productImageUrl } from "@/lib/storage";
+import { ProductImage } from "@/components/product-image";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/shop/issue")({
@@ -122,7 +122,7 @@ function IssueProducts() {
       <div className="grid gap-3 md:grid-cols-2">
         {(products ?? []).map((p: any) => (
           <Card key={p.id} className="flex items-center gap-3 p-3">
-            <img src={productImageUrl(p.image_path)} alt={p.name} className="h-16 w-16 rounded object-cover" />
+            <ProductImage path={p.image_path} alt={p.name} className="h-16 w-16 rounded object-cover" />
             <div className="flex-1">
               <div className="font-medium">{p.name}</div>
               <div className="text-xs text-muted-foreground">Quota: {p.monthly_quota} {p.unit} • ₹{p.price}/{p.unit} • In stock: {p.stock}</div>

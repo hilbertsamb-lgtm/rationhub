@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
-import { productImageUrl } from "@/lib/storage";
+import { ProductImage } from "@/components/product-image";
 
 export const Route = createFileRoute("/admin/stocks")({ component: AdminStocks });
 
@@ -38,7 +38,7 @@ function AdminStocks() {
             {(data ?? []).map((p: any) => (
               <TableRow key={p.id}>
                 <TableCell className="flex items-center gap-3">
-                  <img src={productImageUrl(p.image_path)} alt={p.name} className="h-10 w-10 rounded object-cover" />
+                  <ProductImage path={p.image_path} alt={p.name} className="h-10 w-10 rounded object-cover" />
                   <span className="font-medium">{p.name}</span>
                 </TableCell>
                 <TableCell>{p.category}</TableCell>
