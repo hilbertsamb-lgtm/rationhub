@@ -25,6 +25,7 @@ import { Route as UserNotificationsRouteImport } from './routes/user.notificatio
 import { Route as UserComplaintsRouteImport } from './routes/user.complaints'
 import { Route as UserCardRouteImport } from './routes/user.card'
 import { Route as UserBookTokenRouteImport } from './routes/user.book-token'
+import { Route as UserAddressRequestRouteImport } from './routes/user.address-request'
 import { Route as ShopVerifyRouteImport } from './routes/shop.verify'
 import { Route as ShopTokensRouteImport } from './routes/shop.tokens'
 import { Route as ShopStockRequestsRouteImport } from './routes/shop.stock-requests'
@@ -126,6 +127,11 @@ const UserCardRoute = UserCardRouteImport.update({
 const UserBookTokenRoute = UserBookTokenRouteImport.update({
   id: '/book-token',
   path: '/book-token',
+  getParentRoute: () => UserRoute,
+} as any)
+const UserAddressRequestRoute = UserAddressRequestRouteImport.update({
+  id: '/address-request',
+  path: '/address-request',
   getParentRoute: () => UserRoute,
 } as any)
 const ShopVerifyRoute = ShopVerifyRouteImport.update({
@@ -267,6 +273,7 @@ export interface FileRoutesByFullPath {
   '/shop/stock-requests': typeof ShopStockRequestsRoute
   '/shop/tokens': typeof ShopTokensRoute
   '/shop/verify': typeof ShopVerifyRoute
+  '/user/address-request': typeof UserAddressRequestRoute
   '/user/book-token': typeof UserBookTokenRoute
   '/user/card': typeof UserCardRoute
   '/user/complaints': typeof UserComplaintsRoute
@@ -304,6 +311,7 @@ export interface FileRoutesByTo {
   '/shop/stock-requests': typeof ShopStockRequestsRoute
   '/shop/tokens': typeof ShopTokensRoute
   '/shop/verify': typeof ShopVerifyRoute
+  '/user/address-request': typeof UserAddressRequestRoute
   '/user/book-token': typeof UserBookTokenRoute
   '/user/card': typeof UserCardRoute
   '/user/complaints': typeof UserComplaintsRoute
@@ -345,6 +353,7 @@ export interface FileRoutesById {
   '/shop/stock-requests': typeof ShopStockRequestsRoute
   '/shop/tokens': typeof ShopTokensRoute
   '/shop/verify': typeof ShopVerifyRoute
+  '/user/address-request': typeof UserAddressRequestRoute
   '/user/book-token': typeof UserBookTokenRoute
   '/user/card': typeof UserCardRoute
   '/user/complaints': typeof UserComplaintsRoute
@@ -387,6 +396,7 @@ export interface FileRouteTypes {
     | '/shop/stock-requests'
     | '/shop/tokens'
     | '/shop/verify'
+    | '/user/address-request'
     | '/user/book-token'
     | '/user/card'
     | '/user/complaints'
@@ -424,6 +434,7 @@ export interface FileRouteTypes {
     | '/shop/stock-requests'
     | '/shop/tokens'
     | '/shop/verify'
+    | '/user/address-request'
     | '/user/book-token'
     | '/user/card'
     | '/user/complaints'
@@ -464,6 +475,7 @@ export interface FileRouteTypes {
     | '/shop/stock-requests'
     | '/shop/tokens'
     | '/shop/verify'
+    | '/user/address-request'
     | '/user/book-token'
     | '/user/card'
     | '/user/complaints'
@@ -600,6 +612,13 @@ declare module '@tanstack/react-router' {
       path: '/book-token'
       fullPath: '/user/book-token'
       preLoaderRoute: typeof UserBookTokenRouteImport
+      parentRoute: typeof UserRoute
+    }
+    '/user/address-request': {
+      id: '/user/address-request'
+      path: '/address-request'
+      fullPath: '/user/address-request'
+      preLoaderRoute: typeof UserAddressRequestRouteImport
       parentRoute: typeof UserRoute
     }
     '/shop/verify': {
@@ -818,6 +837,7 @@ const ShopRouteChildren: ShopRouteChildren = {
 const ShopRouteWithChildren = ShopRoute._addFileChildren(ShopRouteChildren)
 
 interface UserRouteChildren {
+  UserAddressRequestRoute: typeof UserAddressRequestRoute
   UserBookTokenRoute: typeof UserBookTokenRoute
   UserCardRoute: typeof UserCardRoute
   UserComplaintsRoute: typeof UserComplaintsRoute
@@ -830,6 +850,7 @@ interface UserRouteChildren {
 }
 
 const UserRouteChildren: UserRouteChildren = {
+  UserAddressRequestRoute: UserAddressRequestRoute,
   UserBookTokenRoute: UserBookTokenRoute,
   UserCardRoute: UserCardRoute,
   UserComplaintsRoute: UserComplaintsRoute,

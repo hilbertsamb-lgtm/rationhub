@@ -18,24 +18,36 @@ export type Database = {
         Row: {
           admin_note: string | null
           created_at: string
+          document_path: string | null
+          document_type: string | null
           id: string
           new_address: string
+          old_address: string | null
+          reason: string | null
           status: Database["public"]["Enums"]["request_status"]
           user_id: string
         }
         Insert: {
           admin_note?: string | null
           created_at?: string
+          document_path?: string | null
+          document_type?: string | null
           id?: string
           new_address: string
+          old_address?: string | null
+          reason?: string | null
           status?: Database["public"]["Enums"]["request_status"]
           user_id: string
         }
         Update: {
           admin_note?: string | null
           created_at?: string
+          document_path?: string | null
+          document_type?: string | null
           id?: string
           new_address?: string
+          old_address?: string | null
+          reason?: string | null
           status?: Database["public"]["Enums"]["request_status"]
           user_id?: string
         }
