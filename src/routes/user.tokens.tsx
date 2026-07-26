@@ -20,7 +20,7 @@ const STATUS_LABEL: Record<string, string> = {
   expired: "Cancelled",
 };
 
-const ACTIVE_STATUSES = ["waiting", "called", "processing", "booked"];
+const ACTIVE_STATUSES = ["waiting", "called", "processing", "booked"] as const;
 
 function statusVariant(s: string): "default" | "secondary" | "destructive" | "outline" {
   if (s === "completed" || s === "collected") return "default";
