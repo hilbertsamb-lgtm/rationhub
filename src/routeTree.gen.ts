@@ -27,6 +27,7 @@ import { Route as UserCardRouteImport } from './routes/user.card'
 import { Route as UserBookTokenRouteImport } from './routes/user.book-token'
 import { Route as ShopVerifyRouteImport } from './routes/shop.verify'
 import { Route as ShopTokensRouteImport } from './routes/shop.tokens'
+import { Route as ShopStockRequestsRouteImport } from './routes/shop.stock-requests'
 import { Route as ShopStockRouteImport } from './routes/shop.stock'
 import { Route as ShopReportRouteImport } from './routes/shop.report'
 import { Route as ShopReceiptsRouteImport } from './routes/shop.receipts'
@@ -134,6 +135,11 @@ const ShopVerifyRoute = ShopVerifyRouteImport.update({
 const ShopTokensRoute = ShopTokensRouteImport.update({
   id: '/tokens',
   path: '/tokens',
+  getParentRoute: () => ShopRoute,
+} as any)
+const ShopStockRequestsRoute = ShopStockRequestsRouteImport.update({
+  id: '/stock-requests',
+  path: '/stock-requests',
   getParentRoute: () => ShopRoute,
 } as any)
 const ShopStockRoute = ShopStockRouteImport.update({
@@ -251,6 +257,7 @@ export interface FileRoutesByFullPath {
   '/shop/receipts': typeof ShopReceiptsRoute
   '/shop/report': typeof ShopReportRoute
   '/shop/stock': typeof ShopStockRoute
+  '/shop/stock-requests': typeof ShopStockRequestsRoute
   '/shop/tokens': typeof ShopTokensRoute
   '/shop/verify': typeof ShopVerifyRoute
   '/user/book-token': typeof UserBookTokenRoute
@@ -286,6 +293,7 @@ export interface FileRoutesByTo {
   '/shop/receipts': typeof ShopReceiptsRoute
   '/shop/report': typeof ShopReportRoute
   '/shop/stock': typeof ShopStockRoute
+  '/shop/stock-requests': typeof ShopStockRequestsRoute
   '/shop/tokens': typeof ShopTokensRoute
   '/shop/verify': typeof ShopVerifyRoute
   '/user/book-token': typeof UserBookTokenRoute
@@ -325,6 +333,7 @@ export interface FileRoutesById {
   '/shop/receipts': typeof ShopReceiptsRoute
   '/shop/report': typeof ShopReportRoute
   '/shop/stock': typeof ShopStockRoute
+  '/shop/stock-requests': typeof ShopStockRequestsRoute
   '/shop/tokens': typeof ShopTokensRoute
   '/shop/verify': typeof ShopVerifyRoute
   '/user/book-token': typeof UserBookTokenRoute
@@ -365,6 +374,7 @@ export interface FileRouteTypes {
     | '/shop/receipts'
     | '/shop/report'
     | '/shop/stock'
+    | '/shop/stock-requests'
     | '/shop/tokens'
     | '/shop/verify'
     | '/user/book-token'
@@ -400,6 +410,7 @@ export interface FileRouteTypes {
     | '/shop/receipts'
     | '/shop/report'
     | '/shop/stock'
+    | '/shop/stock-requests'
     | '/shop/tokens'
     | '/shop/verify'
     | '/user/book-token'
@@ -438,6 +449,7 @@ export interface FileRouteTypes {
     | '/shop/receipts'
     | '/shop/report'
     | '/shop/stock'
+    | '/shop/stock-requests'
     | '/shop/tokens'
     | '/shop/verify'
     | '/user/book-token'
@@ -590,6 +602,13 @@ declare module '@tanstack/react-router' {
       path: '/tokens'
       fullPath: '/shop/tokens'
       preLoaderRoute: typeof ShopTokensRouteImport
+      parentRoute: typeof ShopRoute
+    }
+    '/shop/stock-requests': {
+      id: '/shop/stock-requests'
+      path: '/stock-requests'
+      fullPath: '/shop/stock-requests'
+      preLoaderRoute: typeof ShopStockRequestsRouteImport
       parentRoute: typeof ShopRoute
     }
     '/shop/stock': {
@@ -758,6 +777,7 @@ interface ShopRouteChildren {
   ShopReceiptsRoute: typeof ShopReceiptsRoute
   ShopReportRoute: typeof ShopReportRoute
   ShopStockRoute: typeof ShopStockRoute
+  ShopStockRequestsRoute: typeof ShopStockRequestsRoute
   ShopTokensRoute: typeof ShopTokensRoute
   ShopVerifyRoute: typeof ShopVerifyRoute
   ShopIndexRoute: typeof ShopIndexRoute
@@ -768,6 +788,7 @@ const ShopRouteChildren: ShopRouteChildren = {
   ShopReceiptsRoute: ShopReceiptsRoute,
   ShopReportRoute: ShopReportRoute,
   ShopStockRoute: ShopStockRoute,
+  ShopStockRequestsRoute: ShopStockRequestsRoute,
   ShopTokensRoute: ShopTokensRoute,
   ShopVerifyRoute: ShopVerifyRoute,
   ShopIndexRoute: ShopIndexRoute,
